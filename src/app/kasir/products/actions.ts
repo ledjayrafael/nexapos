@@ -13,7 +13,7 @@ export async function addProduct(data: { name: string, price: number, stock: num
 
     if (!profile) {
         console.error('Profile not found')
-        return
+        return { error: 'Profile not found' }
     }
 
     const { error } = await supabase.from('products').insert({

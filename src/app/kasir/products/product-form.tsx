@@ -45,7 +45,7 @@ export function ProductForm() {
             }
 
             const res = await addProduct({ name, price, stock, image_url })
-            if (res.error) throw new Error(res.error)
+            if ('error' in res && res.error) throw new Error(res.error as string)
 
             toast.success('Product added successfully!')
             // Reset form

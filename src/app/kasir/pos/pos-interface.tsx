@@ -67,7 +67,7 @@ export function POSInterface({ products }: { products: Product[] }) {
                 grandTotal
             )
 
-            if (res.error) throw new Error(res.error)
+            if ('error' in res && res.error) throw new Error(res.error)
 
             toast.success('Transaction Successful! Change: IDR ' + change.toLocaleString())
             setCart([])
